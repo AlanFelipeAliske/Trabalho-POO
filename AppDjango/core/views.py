@@ -1,11 +1,12 @@
 
+from urllib import response
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from core.models import Veiculos
+
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
-
-
-def teste(request):
-    return render(request, 'index.html')
+    descricaoVeiculo = Veiculos.objects.get(id=1)
+    response = {'descricaoVeiculo': descricaoVeiculo}
+    return render(request, 'index.html', response)
