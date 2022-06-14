@@ -40,6 +40,8 @@ def inicio(request):
 
 # ----------------------------------------------------------------
 
+from core.models import Veiculos
+
 
 def index(request):
     return render(request, 'index.html')
@@ -75,3 +77,6 @@ def equipamentos(request):
 
 
 # ----------------------------------------------------------------
+    descricaoVeiculo = Veiculos.objects.get(id=1)
+    response = {'descricaoVeiculo': descricaoVeiculo}
+    return render(request, 'index.html', response)
