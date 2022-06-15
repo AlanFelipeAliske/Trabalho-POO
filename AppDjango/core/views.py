@@ -1,8 +1,13 @@
 
+from collections import UserList
+from urllib import response
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from core.models import Veiculos, AuthUser
+
 
 # ----------------------------------------------------------------
 
@@ -20,7 +25,7 @@ def submit_login(request):
         usuario = authenticate(username=username, password=password)
         if usuario is not None:
             login(request, usuario)
-            return redirect('inicio/')
+            return redirect('/inicio/')
         else:
             messages.error(request, 'Senha ou usuario invalidos')
         return redirect('/')
@@ -34,32 +39,45 @@ def logout_user(request):
 
 # ----------------------------------------------------------------
 
-
 def inicio(request):
+
     return render(request, 'inicio.html')
 
 # ----------------------------------------------------------------
 
-from core.models import Veiculos
-
-
 def index(request):
+    #email = Usuarios.objects.get(id=1)
+    #response = {'email': email}
     return render(request, 'index.html')
 
 # ----------------------------------------------------------------
 
-
-def usuarios(request):
-    return render(request, 'usuarios.html')
+@login_required(login_url='/login/')
+def usuario(request):
+    id = request.user.id
+    username = request.user
+    email = request.user.email
+    response = {'id': id, 'username': username, 'email': email}
+    return render(request, 'usuario.html', response)
 
 # ----------------------------------------------------------------
-
 
 def equipamentos(request):
     return render(request, 'equipamentos.html')
 
 # ----------------------------------------------------------------
 
+def veiculos(request):
+    veiculo = Veiculos.objects.all()
+    response = {'veiculos': veiculo}
+    return render(request, 'veiculos.html', response)
+
+# ----------------------------------------------------------------
+
+def checklist(request):
+    return render(request, 'checklist.html')
+
+# ----------------------------------------------------------------
 
 # ----------------------------------------------------------------
 
@@ -75,8 +93,3 @@ def equipamentos(request):
 
 # ----------------------------------------------------------------
 
-
-# ----------------------------------------------------------------
-    descricaoVeiculo = Veiculos.objects.get(id=1)
-    response = {'descricaoVeiculo': descricaoVeiculo}
-    return render(request, 'index.html', response)

@@ -1,39 +1,53 @@
 
-
 from django.contrib import admin
-from core.models import Usuarios, Veiculos, EquipamentoSeguraca, CheckList
+from .models import AuthUser, Veiculos, EquipamentoSeguraca, CheckList
 
-#------------------------------------------------------------------------------
 
-class UsuariosAdmin(admin.ModelAdmin):
-    list_display = ('id','nome', 'cpf', 'email',)
-    list_filter = ('id','nome', 'cpf', 'email',)
-    ordering = ('id' , 'nome', 'email')
-admin.site.register(Usuarios, UsuariosAdmin)
-
+class AuthUserAdmin(admin.ModelAdmin):
+    list_display = ('id', 'username', 'email')
+    list_filter = ('id',)
+admin.site.register(AuthUser, AuthUserAdmin)
 
 #------------------------------------------------------------------------------
 
 class VeiculosAdmin(admin.ModelAdmin):
-    list_display = ('descricaoVeiculo',)
-    list_filter = ('descricaoVeiculo',)
-
+    list_display = ('descricao_veiculo',)
+    list_filter = ('descricao_veiculo',)
 admin.site.register(Veiculos, VeiculosAdmin)
 
 #------------------------------------------------------------------------------
 
 class EquipamentoSeguracaAdmin(admin.ModelAdmin):
-    list_display = ('descricaoEquipamentoSeguranca',)
-    list_filter = ('descricaoEquipamentoSeguranca',)
-
+    list_display = ('descricao_equipamento_seguranca',)
+    list_filter = ('descricao_equipamento_seguranca',)
 admin.site.register(EquipamentoSeguraca, EquipamentoSeguracaAdmin)
 
 #------------------------------------------------------------------------------
+"""
+class VeiculoEquipamentoAdmin(admin.ModelAdmin):
+    list_display = ('veiculo',)
+    list_filter = ('veiculo',)
+admin.site.register(VeiculoEquipamento, VeiculoEquipamentoAdmin)
+
+"""
+#------------------------------------------------------------------------------
 
 class CheckListAdmin(admin.ModelAdmin):
-    list_display = ('veiculos', 'usuario',)
-    list_filter = ('veiculos', 'usuario',)
-
+    list_display = ('descricao',)
+    list_filter = ('descricao',)
 admin.site.register(CheckList, CheckListAdmin)
+
+
+#------------------------------------------------------------------------------
+"""
+class CheckListDetalheAdmin(admin.ModelAdmin):
+    list_display = ('checklist', 'veiculo_equipamento',)
+    list_filter = ('checklist', 'veiculo_equipamento',)
+admin.site.register(CheckListDetalhe, CheckListDetalheAdmin)
+"""
+
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------

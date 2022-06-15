@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container mt-4 mb-4">
+    <div class="">
+        <h4>Teste página de Veiculos</h4>
+        
+        <table class="table table-bordered table-dark">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Veículos</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for veiculo in veiculos %}
+              <tr>
+                <th scope="row">{{veiculo.id}}</th>
+                <td> <a href="" style="color:white" > {{veiculo.descricao_veiculo}} </a></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
