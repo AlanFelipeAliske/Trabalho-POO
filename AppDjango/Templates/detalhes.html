@@ -4,23 +4,25 @@
 
 <div class="container mt-4 mb-4">
   <div class="">
-    <h4>Veiculos cadastrados</h4>
+    <h4>Detalhes</h4>
+
     <table class="table table-bordered mt-4">
       <thead class="thead-dark">
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Veículos</th>
+          <th scope="col"> Equipamentos do {{checklist}}</th>
         </tr>
       </thead>
       <tbody>
-        {% for veiculo in veiculos %}
+        {% for detalhe in detalhes %}
         <tr>
-          <th scope="row">{{veiculo.id}}</th>
-          <td>{{veiculo.descricao_veiculo}}</td>
+          <th scope="row"> {{detalhe.checklist.id}} </th>
+          <td> {{detalhe.equipamentoseguraca}} </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
+    <h5></h5>
   </div>
 </div>
 

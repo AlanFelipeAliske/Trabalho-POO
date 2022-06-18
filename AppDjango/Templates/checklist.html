@@ -3,9 +3,28 @@
 {% block content %}
 
 <div class="container mt-4 mb-4">
-    <div class="">
-        <h1>Teste página de checklist</h1>
-    </div>
+  <div class="">
+    <h4>Lista de checklist</h4>
+    <table class="table table-bordered mt-4">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">CheckLists</th>
+          <th scope="col">Adicionado por</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for checklist in checklists %}
+        <tr>
+          <th scope="row">{{checklist.id}}</th>
+          <td> <a href="detalhes/" title="Detalhes"> {{checklist}} </a></td>
+          <td>{{checklist.usuario}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h5>{{checklist.descricao}}</h5>
+  </div>
 </div>
 
 {% endblock %}

@@ -3,23 +3,23 @@
 {% block content %}
 
 <div class="container mt-4 mb-4">
-    <h4>Dados do usuário logado</h4>
-    <table class="table table-bordered table-dark">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">{{id}}</th>
-            <td>{{username}}</td>
-            <td> {{email}}</td>
-          </tr>
-        </tbody>
-    </table>
+  <h4>Dados do usuário logado</h4>
+  <table class="table table-bordered mt-4">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{id}}</th>
+        <td>{{username}}</td>
+        <td> {{email}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 {% endblock %}

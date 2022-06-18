@@ -3,9 +3,25 @@
 {% block content %}
 
 <div class="container mt-4 mb-4">
-    <div class="">
-        <h1>Teste página de Equipamentos</h1>
-    </div>
+  <div class="">
+    <h4>Equipamentos de segurança cadastrados</h4>
+    <table class="table table-bordered mt-4">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Equipamentos</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for equipamentoseguraca in equipamentoseguracas %}
+        <tr>
+          <th scope="row">{{equipamentoseguraca.id}}</th>
+          <td>{{equipamentoseguraca.descricao_equipamento_seguranca}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 {% endblock %}

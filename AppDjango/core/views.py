@@ -1,12 +1,13 @@
 
 from collections import UserList
+import re
 from urllib import response
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from core.models import Veiculos, AuthUser
+from core.models import Veiculos, AuthUser, CheckList, EquipamentoSeguraca, ChecklistEquipamentoSeguranca
 
 
 # ----------------------------------------------------------------
@@ -63,7 +64,9 @@ def usuario(request):
 # ----------------------------------------------------------------
 
 def equipamentos(request):
-    return render(request, 'equipamentos.html')
+    equipamentoseguraca = EquipamentoSeguraca.objects.all()
+    response = {'equipamentoseguracas': equipamentoseguraca}
+    return render(request, 'equipamentos.html', response)
 
 # ----------------------------------------------------------------
 
@@ -75,12 +78,19 @@ def veiculos(request):
 # ----------------------------------------------------------------
 
 def checklist(request):
-    return render(request, 'checklist.html')
+    checklist = CheckList.objects.all()
+    response = {'checklists': checklist}
+    return render(request, 'checklist.html', response)
 
 # ----------------------------------------------------------------
 
+def detalhes(request):
+    id_evento = request.GET.get('id')
+    checklist = CheckList.objects.get(id=1)
+    detalhe = ChecklistEquipamentoSeguranca.objects.filter(checklist=checklist.id)
+    response = {'detalhes': detalhe, 'checklist': checklist}
+    return render(request, 'detalhes.html' , response)
 # ----------------------------------------------------------------
-
 
 # ----------------------------------------------------------------
 
