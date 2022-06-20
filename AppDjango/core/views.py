@@ -85,8 +85,8 @@ def checklist(request):
 # ----------------------------------------------------------------
 
 def detalhes(request):
-    id_evento = request.GET.get('id')
-    checklist = CheckList.objects.get(id=1)
+    id_checklist = request.GET.get('id')
+    checklist = CheckList.objects.get(id=id_checklist)
     detalhe = ChecklistEquipamentoSeguranca.objects.filter(checklist=checklist.id)
     response = {'detalhes': detalhe, 'checklist': checklist}
     return render(request, 'detalhes.html' , response)

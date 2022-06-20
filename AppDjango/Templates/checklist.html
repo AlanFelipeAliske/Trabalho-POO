@@ -9,15 +9,15 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">CheckLists</th>
+          <th scope="col">Checklists</th>
           <th scope="col">Adicionado por</th>
         </tr>
       </thead>
       <tbody>
         {% for checklist in checklists %}
         <tr>
-          <th scope="row">{{checklist.id}}</th>
-          <td> <a href="detalhes/" title="Detalhes"> {{checklist}} </a></td>
+          <th class="col-1" scope="row">{{checklist.id}}</th>
+          <td> <a href="detalhes/?id={{ checklist.id }}" title="Detalhes"> {{checklist}} </a></td>
           <td>{{checklist.usuario}}</td>
         </tr>
         {% endfor %}
