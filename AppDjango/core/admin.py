@@ -2,12 +2,12 @@
 from django.contrib import admin
 from .models import AuthUser, Veiculos, EquipamentoSeguraca, CheckList
 
-
+"""
 class AuthUserAdmin(admin.ModelAdmin):
     list_display = ('id', 'username', 'email')
     list_filter = ('id',)
 admin.site.register(AuthUser, AuthUserAdmin)
-
+"""
 #------------------------------------------------------------------------------
 
 class VeiculosAdmin(admin.ModelAdmin):
