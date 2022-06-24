@@ -1,4 +1,4 @@
-# Trabalho-POO
+# trabalho-checklist
 
 ### CheckList de equipamentos de segurança
 
