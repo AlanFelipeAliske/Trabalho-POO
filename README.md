@@ -1,4 +1,4 @@
-# trabalho-checklist
+# checklist
 
 ### CheckList de equipamentos de segurança
 
@@ -20,13 +20,6 @@ Programa foi desenvolvido utilizando o framework Django com linguagem Python
 
 Ter o Python instalado e atualizado
 
-Prompt de comando como administrador
-
-Criando a venv caso não tenha.
-
-Comando:
-python -m venv venv 
-
 ir até a pasta:
 ( \venv\Scripts )
 rodar o comando activate.bat
@@ -34,7 +27,7 @@ rodar o comando activate.bat
 Com a venv rodando ir até a pasta:
 ( Trabalho-POO\AppDjango )
 
-E rodar os seguinter comandos:
+E rodar os seguintes comandos:
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
@@ -48,10 +41,9 @@ Criando um super usuário:
 python manage.py createsuperuser
 
 
-## Funcionalidades
+## Funcionalidades do app
 
 - Adicionar Veículos
 - Adicionar equipamentos
 - Criar checklists de veículos
 - Administrar o sistema
-
